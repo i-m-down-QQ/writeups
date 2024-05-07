@@ -1,4 +1,4 @@
-# HackTheon Sejong 2024 Preliminaries
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/64e883c3-cf1a-4161-bc1f-c9a0ed1dc0ec)# HackTheon Sejong 2024 Preliminaries
 
 ## Rumor 1
 
@@ -9,7 +9,7 @@ Find the ip using Regular Expression
 
 Also, we can find thunderbird.exe this mail application by applying smtp search filter.
 
-![image](https://hackmd.io/_uploads/Sy1cQH5bR.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/c8db3913-47e1-4a90-acba-1f17f4cb698c)
 
 Mail Server IP: `92.68.200.206`
 
@@ -20,9 +20,9 @@ Mail Server IP: `92.68.200.206`
 
 ## Rumor 2
 
-![image](https://hackmd.io/_uploads/rys8VS5-A.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/3c719b70-7caa-4651-a974-505256196b32)
 
-![image](https://hackmd.io/_uploads/HykDVB5WA.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/e6213412-c15e-4079-b5ad-ca6825dd6518)
 
 ### Flag
 `3868`
@@ -34,7 +34,7 @@ Mail Server IP: `92.68.200.206`
 
 run by <ping -n 192.168.100.xxx...> and by the parent process command \<python netscan.py>
 
-![image](https://hackmd.io/_uploads/rJIAiIq-C.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/ae1c3a5d-5bb7-4970-9834-1f00e592df73)
 
 ### Flag
 `192.168.100.0/24`
@@ -43,31 +43,31 @@ run by <ping -n 192.168.100.xxx...> and by the parent process command \<python n
 `HTO{05d8078dd8dc40aeadbdc52858072461}`
 
 ## Revact
-![題目](https://hackmd.io/_uploads/rkvcueqWR.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/cca10fed-8a3b-4dd7-9abd-6e14f4da7332)
 
-![1](https://hackmd.io/_uploads/H1Koulc-R.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/1951d74a-cce6-460e-8bd7-b85a7a1aeb42)
 
-![wrong](https://hackmd.io/_uploads/r122_xcbR.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/a0e9dc24-ad7d-4dc3-aca3-52f4f7f35a28)
 
 We can see [js](https://d1rov3aw0q2u2y.cloudfront.net/static/js/main.5e39c7c2.js) code here.
 
 Let't use this [deobfuscator js tool](https://js-deobfuscator.vercel.app/) to deobfuscate
 
 Read line 12093
-![image](https://hackmd.io/_uploads/BkACGB5ZA.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/e200aade-13ce-4979-820d-8608b8c8060f)
 
 At line 12094 is a function for wrong
 At line 12099 is a function for correct
 
 Check line 12111 is onClick. 
 
-![image](https://hackmd.io/_uploads/ByvuXScbR.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/b83b4874-0585-48db-b1c9-8798cd8fce7e)
 
 It will check flag is start and end with 'X' char
 
 Read line 12170.
 
-![image](https://hackmd.io/_uploads/SyK4NScbC.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/ffa9a543-21fc-4ad6-b428-6228a6cad70e)
 
 It will check all flag without first and least char.
 
@@ -88,21 +88,21 @@ And start and end with 'X' we can get: `XG@@DzX`
 ### Flag
 `XG@@DzX`
 
-![correct](https://hackmd.io/_uploads/B15Tdl9-C.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/d26ad692-6b4c-43ef-b7f1-d84bec377c60)
 
 ### Real Flag
 `HTO{a7f7e4ab0a35471fa8c93c9ae63a4dcf}`
 
 ## DogGallery
-![image](https://hackmd.io/_uploads/B1NxFx5bR.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/680607fe-34ff-4703-b221-f5a460cf7a0a)
 
 There is a web site with dog gallery.
 
-![image](https://hackmd.io/_uploads/S1JctgqZA.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/fc784b38-d628-43e5-9f0c-f71435305fe2)
 
 Try get photo url.
 
-![image](https://hackmd.io/_uploads/SJeotx9-C.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/87f217e7-d8a6-4cd9-b0de-db51e4750e03)
 
 It is s3.
 
@@ -161,15 +161,15 @@ FLAG : IMPORTANT_S3_P0L1CY_ByJ
 
 
 ## GithubReadme
-![image](https://hackmd.io/_uploads/H1iIVX9bA.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/c454233f-0ecb-413b-82b8-aae424e19a95)
 
 A web site to get github readme.
 
-![image](https://hackmd.io/_uploads/HJAbB75-C.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/c511f03e-795c-49dc-bb21-982ae48e0e8b)
 
 Check source code.
 
-![image](https://hackmd.io/_uploads/Bk9XB79WC.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/021ff3e1-4b1a-49b6-a8c0-c6c9e9312f17)
 
 There can url injection to SSRF.
 
@@ -179,7 +179,7 @@ Try this payload to get google.
 curl -X POST "https://githubreadme.hacktheon-ctf.org/api/view" -d '{"path":"@www.google.com?test=","branch_name":"main"}'
 ```
 
-![image](https://hackmd.io/_uploads/S1ypHmq-R.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/fbb766d3-e550-431a-b356-41d76704f787)
 
 success!!
 
@@ -208,7 +208,7 @@ curl -X POST "https://githubreadme.hacktheon-ctf.org/api/view" -d '{"path":"@tes
 
 Get flag!!
 
-![image](https://hackmd.io/_uploads/SkqR47qZ0.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/eec53b5e-119b-41c8-8fea-fb6027af387e)
 
 ### Flag
 `J_DN5_S5L_CUST0M_JH`
@@ -317,11 +317,11 @@ print(dec)
 
 Because of The head of sky.png missing, the png cannot properly opened.
 
-![image](https://hackmd.io/_uploads/BkVv-wcbC.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/3c4a26de-0b7a-4aea-8ae3-ff3c0d371635)
 
 After we fixed it, we can get the flag (show on the screenshot below)
 
-![螢幕擷取畫面 2024-04-27 193220 (2)](https://hackmd.io/_uploads/ry6zQwq-C.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/33d1fe43-69ee-4ae7-81f2-bcd0e4e5b01b)
 
 ### Flag
 
@@ -334,10 +334,10 @@ After we fixed it, we can get the flag (show on the screenshot below)
 
 Examine the work sheet file in HxD, we can observe that the file contains text that may suggest this is a Microsoft PowerPoint file .ppt/.pptx. 
 
-![image](https://hackmd.io/_uploads/Hyay2U9-R.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/6150404e-e9de-4f60-93cd-da0267f706d7)
 
 By changing the extesion to .ppt we can get the flag in it.
-![image](https://hackmd.io/_uploads/SkAQnUcb0.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/0b7f274a-02e6-4a52-b078-333276de0e5b)
 
 ### Flag
 `th15_1s_00XML`
@@ -349,17 +349,17 @@ By changing the extesion to .ppt we can get the flag in it.
 
 First use strings to search some information, PDF will contain some file instrucuter so I usually set minium length as 20.
 
-![image](https://hackmd.io/_uploads/BJ95aci-C.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/46e11ac4-96ee-4aa4-84f0-c900f9b593da)
 
 After strings , there is a suspicious string append after JS, so use python to decode hex, then see a javascript code. 
 
-![image](https://hackmd.io/_uploads/rkYo6cibC.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/58286c8e-2ad6-4d7a-b728-a44014653960)
 
 After read the source we know to use base64 decode and the compress data contained some word subfiles, so write into a .word file and open it.
 
-![image](https://hackmd.io/_uploads/rkG6TcjWR.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/f80e7bc2-fd36-4dce-a70c-d688827e627c)
 
-![image](https://hackmd.io/_uploads/B1uTa5jbA.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/d393896b-04ff-4322-a2e0-ae064cfc2d58)
 
 ### Flag
 
@@ -369,19 +369,19 @@ After read the source we know to use base64 decode and the compress data contain
 
 Use some common stego command to dig informatoins, and see some coordinates in zsteg `b1,g,lsb,xy`
 
-![image](https://hackmd.io/_uploads/B1vbAcoZ0.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/e652bc70-af7c-40a3-a720-850f0711c335)
 
 Use `-E` extract and write a script to map these point to a png
 `zsteg -E b1,g,lsb,xy > output.txt`
 
-![image](https://hackmd.io/_uploads/Sk2B09obA.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/72c53b1d-8834-4855-b87f-914e5738bd38)
 
 ### Flag
 I_LOVE_XY
 
 ## Backtest
 Tradeview
-![image](https://hackmd.io/_uploads/BJOsVpvzR.png)
+![graph](https://github.com/i-m-down-QQ/writeups/assets/67849251/16587c41-40ae-4f85-912c-7b4c0e9cb54f)
 
 ### Flag 
 來不及
