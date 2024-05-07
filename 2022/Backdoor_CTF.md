@@ -18,11 +18,11 @@ flag{w3lc0m3_70_b4ckd00r_2022}
 
 一進入首頁，發現什麼東西都沒有
 
-![](https://i.imgur.com/Bq8Lf8Z.png =500x)
+![](https://i.imgur.com/Bq8Lf8Z.png)
 
 從標題的 Konsole 推測是跟 Flask 的 debug mode console 有關，發現確實有 `/console` 的 endpoint，需要 pin
 
-![](https://i.imgur.com/alq3Fec.png =500x)
+![](https://i.imgur.com/alq3Fec.png)
 
 因此，需要有一個讀檔漏洞幫我們取得必要的資訊
 
