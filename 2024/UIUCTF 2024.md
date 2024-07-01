@@ -10,7 +10,7 @@
 
 丟 jwt 驗證通過，應該是要自己簽 jwt
 
-![image](https://hackmd.io/_uploads/S1o73bpU0.png)
+![image](https://i.imgur.com/KfhRBwj.png)
 
 嘗試改成 kid: `conductor_key` 和 type: `conductor` 皆無法正常使用 <- 目前的進度
 
@@ -64,8 +64,8 @@ $y = f_0 * i_0 + f_1 * i_1 + f_2 * i_2 + f_3 * i_3 + f_4 * i_4$
 
 而一個簡單的想法是利用 n 進位的計算，這樣就可以求出 $f_0$ ~ $f_4$ 的值，而由於 5 bytes 的大小是 $256^5 = 1099511627776$，因此在輸入部分會分別給 $1099511627776^4$ ~ $1099511627776^0$，而後取得方程式結果 $y$ 之後再不斷進行模除和整數除法即可
 
-![image](https://hackmd.io/_uploads/S1kzcW68A.png)
-![image](https://hackmd.io/_uploads/SkpGq-pIC.png)
+![image](https://i.imgur.com/Us3l1nT.png)
+![image](https://i.imgur.com/3xQ5fd3.png)
 
 `uiuctf{tr4c1ng_&&_mult5!}`
 
@@ -95,8 +95,8 @@ $y = p \times (③r - ④q)$
 
 > 註: 這邊也可以直接限制 $④ = -1$ 其他是 0，就可以直接取得 q 的值出來，但我是後來才想到的
 
-![image](https://hackmd.io/_uploads/r1r3INp8A.png)
-![image](https://hackmd.io/_uploads/SkDpLE6I0.png)
+![image](https://i.imgur.com/jVNAsEk.png)
+![image](https://i.imgur.com/VirhLQN.png)
 
 `uiuctf{h4rd_w0rk_&&_d3t3rm1n4t10n}`
 
@@ -312,15 +312,15 @@ conn.interactive()
 
 題目要我們找六個數字滿足條件，flag 是這六個數字的 hex 組合
 
-![image](https://hackmd.io/_uploads/Hk1aPSaUA.png)
+![image](https://i.imgur.com/Y8IL7qd.png)
 
 條件式如下
 
-![image](https://hackmd.io/_uploads/S1sxuHp8A.png)
+![image](https://i.imgur.com/x0aGIh2.png)
 
 函式中的 `minus`, `add` 等是透過觀察和使用 Copilot 整理的，原始的長相如下，基本上就是一個 bit 一個 bit 做處理的步驟
 
-![image](https://hackmd.io/_uploads/HJqB_STLA.png)
+![image](https://i.imgur.com/4tZmAbe.png)
 
 而求解部分就交給 z3 處理
 
@@ -379,7 +379,7 @@ else:
 ```
 :::
 
-![image](https://hackmd.io/_uploads/HJhAdSTL0.png)
+![image](https://i.imgur.com/7YJLGiz.png)
 
 `uiuctf{2a142dd72e87fa9c1456a32d1bc4f77739975e5fcf5c6c0}`
 
@@ -503,12 +503,12 @@ conn.interactive()
 ## OSINT
 ### Hip With the Youth
 https://www.threads.net/@longislandsubwayauthority/post/C8tBD_eRl9Z?xmt=AQGzetMM2HApb_vk6RGxR2Ii0u8szZtwQ9yd47lN5nnlLAM
-![image](https://hackmd.io/_uploads/rJ30UfTUC.png)
+![image](https://i.imgur.com/37HQwPA.png)
 `uiuctf{7W1773r_K!113r_321879}`
 
 ### An Unlikely Partnership
 https://www.linkedin.com/in/uiuc-chan/
-![image](https://hackmd.io/_uploads/Sk4NXMaI0.png)
+![image](https://i.imgur.com/h8QfV2k.png)
 `uiuctf{0M160D_U1UCCH4N_15_MY_F4V0r173_129301}`
 
 ### Night
