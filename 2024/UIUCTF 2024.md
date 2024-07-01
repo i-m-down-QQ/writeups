@@ -6,7 +6,7 @@
 
 按下 pay 會噴出訊息，包含了一個 secret key `a_boring_passenger_signing_key_?`
 
-![image](https://hackmd.io/_uploads/ByEk2-aUC.png)
+![img](https://i.imgur.com/Ges0sY4.png)
 
 丟 jwt 驗證通過，應該是要自己簽 jwt
 
