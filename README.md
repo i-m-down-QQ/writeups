@@ -2,6 +2,7 @@
 
 ## 2024
 
+- [idekCTF 2024](/2024/idekCTF%202024.md)
 - [UIUCTF 2024](/2024/UIUCTF%202024.md)
 - [ywc - AIS3 2024 pre-exam writeup](https://hackmd.io/@ywChen/Sy-sS36XC)
 - [DEFCON Quals 2024](/2024/Defcon%20Quals%202024.md)
