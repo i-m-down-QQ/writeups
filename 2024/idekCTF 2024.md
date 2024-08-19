@@ -104,9 +104,9 @@ $a^x = A - b^x$
 
 $B = a^{x-1} + b^{x-1} = \frac{a^x}{a}+\frac{b^x}{b}$
 
-$a*b*B = b*a^x + a*b^x = b*(A - b^x) + a*b^x = b*A + (a-b)*b^x$
+$a \times b \times B = b \times a^x + a \times b^x = b \times (A - b^x) + a \times b^x = b \times A + (a-b) \times b^x$
 
-$b^x = \frac{a*b*B - b*A}{a-b}$
+$b^x = \frac{a \times b \times B - b \times A}{a-b}$
 
 而 p-1 平滑，因此可以用 Pohlig–Hellman 來解 (i.e. sagemath discrete_log)
 
@@ -166,7 +166,6 @@ There is a json file named spritesheet, that defined the collision or icon posit
 So we just need to modify collsion to all zero and use CheatEngine speedhack to speed up.
 
 ```json
-},
     "obstacle_small_0": {
         "x": 228,
         "y": 2,
