@@ -347,17 +347,7 @@ except:
 Choose 4 different e to assemble `n` and `m`  
 We can use any numbers to recover values, use the closest number for sample.  
 
-$\begin{split} \\
-x_0 &= 524288 \\
-y_0 &= -x_0  \\
-x_1 &= x_0+1 \\
-y_1 &= -(x_0+1) \\ 
-\\
-m^{x_0} * m^{y_0} &\equiv m^{x_1} * m^{y_1} \equiv m^0 \\
-&\equiv  k_0*n+1 \equiv k_1 * n + 1\ (mod\ n) \\
-\rightarrow \ n &= GCD(m^{(x_0*y_0)} - 1, m^{(x_1*y_1)} - 1) \\
-m &\equiv m^{x_1} * m^{y_0} \equiv m^{(x+1)-x}\ (mod\ n)
-\end{split}$
+![image](./img/aegis_math1.png)
 
 ```python
 #!/usr/bin/python3.10 -W ignore
@@ -409,11 +399,7 @@ with open('flag.png', 'rb') as f:
 
 getPrime(39) will generate small prime that we can easily factorize
 
-$$\begin{align*} \\
-n &= \prod^{n}_{i=0}p_i \\
-\phi(n) &= \prod^{n}_{i=0}p_i-1 \\
-\end{align*}
-$$
+![image](./img/aegis_math2.png)
 
 Solve script
 ```python
